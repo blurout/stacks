@@ -3,8 +3,10 @@ package main
 func main(){
 	Towers(4, "Pike 1", "Pike 2", "Pike 3")
 }
+var step int = 0
 func print_move(fr string, to string) {
-	println("move from ", fr, " to ", to)
+	step++
+	println("Step", step, ": move from ", fr, " to ", to)
 }
 func Towers(n int, fr string, to string, spare string) {
 	if n == 1 {
