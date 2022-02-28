@@ -4,11 +4,11 @@ package main
 import(
 	"fmt"
 )
+type stack [MAX_SIZE]int
 const MAX_SIZE int = 101
 var top int = -1
-type stack [MAX_SIZE]int
-var Mystack stack
 
+var Mystack stack
 func main() {
 	Mystack.Push(4)
 	Mystack.Push(2)
