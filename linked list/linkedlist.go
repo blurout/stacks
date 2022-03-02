@@ -1,5 +1,8 @@
 package main
 
+import(
+	"fmt"
+)
 // Stack Node
 type StackNode struct {
 	data int
@@ -19,8 +22,7 @@ func main() {
 	MyStack.Push(31)
 	MyStack.Push(21)
 	MyStack.Pop()
-	println(MyStack.top.data)
-	print(MyStack.Empty())
+	MyStack.Print()
 }
 
 // Add a new element in stack
@@ -43,4 +45,21 @@ func (stack *stack) Empty() bool {
 		return true
 	}
 	return false
+}
+
+func (stack *stack) Peek() int {
+	if !stack.Empty() {
+		return stack.top.data
+	}
+	fmt.Println("error: stack empty")
+	return -1
+}
+
+func (stack *stack) Print() {
+	tmp := stack.top
+	fmt.Println("current stack: ")
+	for tmp != nil {
+		fmt.Println(tmp.data)
+		tmp = tmp.next
+	}
 }
