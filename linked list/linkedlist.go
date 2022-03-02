@@ -1,39 +1,46 @@
 package main
-// Go program for
-// Implementation stack using linked list
 
 // Stack Node
 type StackNode struct {
 	data int
-	next * StackNode
+	next *StackNode
 }
-func getStackNode(data int, top * StackNode) * StackNode {
-	// return new StackNode
-	return &StackNode {
-		data,
-		top,
-	}
-}
-type MyStack struct {
-	top * StackNode
-	count int
-}
-// Add a new element in stack
-func(this *MyStack) push(data int) {
-	// Make a new stack node
-	// And set as top
-	this.top = getStackNode(data, this.top)
-	// Increase node value
-	this.count++
+
+type stack struct {
+	top *StackNode
 }
 
 func main() {
-	// Create new stack 
-	var s * MyStack = &MyStack{top: nil, count: 0}
-	// Add element
-	s.push(15)
-	s.push(14)
-	s.push(31)
-	s.push(21)
-	print(s.top.data)
+	// Create new stack
+	var MyStack *stack = &stack{top: nil}
+	// Add elements
+	MyStack.Push(15)
+	MyStack.Push(14)
+	MyStack.Push(31)
+	MyStack.Push(21)
+	MyStack.Pop()
+	println(MyStack.top.data)
+	print(MyStack.Empty())
+}
+
+// Add a new element in stack
+func (stack *stack) Push(data int) {
+	// Make a new stack node
+	// And set as top
+	stack.top = &StackNode{data: data, next: stack.top}
+}
+
+func (stack *stack) Pop() {
+	if stack.top == nil {
+		print("stack empty")
+		return
+	}
+	stack.top = stack.top.next
+}
+
+func (stack *stack) Empty() bool {
+	if stack.top == nil {
+		return true
+	}
+	return false
 }
