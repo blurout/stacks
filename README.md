@@ -6,6 +6,7 @@ Data Structure Series: Stacks and stack implementations
 ## GO:
 
 ##### arrays.go:
+* local package array, stack package implemented using arrays
 * simple stack implementation using arrays in GO
 * Push() func, places the given data at the top of the stack
 * Pop() func, removes data from the top of the stack
@@ -13,6 +14,7 @@ Data Structure Series: Stacks and stack implementations
 * Print_Stack() func, prints the data in the stack from top to bottom
 
 ##### linkedlist.go:
+* local package linked_list, stack package implemented using linked lists
 * simple stack implementation using linked list in GO
 * Push() func, places the given data at the top of the stack
 * Pop() func, removes data from the top of the stack
@@ -22,7 +24,6 @@ Data Structure Series: Stacks and stack implementations
 
 ## ***More updates coming soon to this repository:*** ###  
 * more stack funcs
-* local packages
 * doc strings and notes for all funcs
 
 ## Current Languages Implemented:   
