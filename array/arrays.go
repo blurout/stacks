@@ -4,36 +4,48 @@ package array
 import(
 	"fmt"
 )
-type stack [MAX_SIZE]int
-const MAX_SIZE int = 101
-var top int = -1
+type stack struct {
+    stack []int
+    top int
+}
 
-var Mystack stack
+var array stack = stack{top: 0}
 
-func (array stack) Push(n int) {
-	if top == MAX_SIZE - 1 {
-		fmt.Println("Error: Stack Overflow")
-		return
+func Make_Stack(maxSize int) stack {
+	array.stack = make([]int, maxSize)
+    return array
+}
+
+func (this *stack) Push(x int)  {
+    if this.top == len(this.stack) {
+        return
+    }
+	this.stack[this.top] = x
+    this.top++
+}
+
+func (this *stack) Pop() int {
+    if this.top == 0 {
+		return -1
 	}
-	top++
-	Mystack[top] = n
+	this.top--
+    return this.stack[this.top]
 }
 
-func (array stack) Pop() {
-	if top == - 1 {
-		fmt.Println("Error: Stack empty, No element to pop")
-		return
+
+func (this *stack) Increment(k int, val int)  {
+	for i := 0; i < k && i < this.top; i++ {
+		this.stack[i] += val
 	}
-	top--
 }
 
-func (array stack) Top() int {
-	return array[top]
+func (this stack) Top() int {
+	return this.stack[this.top]
 }
 
-func (array stack) Print_Stack() {
+func (this stack) Print_Stack() {
 	fmt.Println("Stack: ")
-	for i := top; i >= 0; i-- {
-		fmt.Println(Mystack[i])
+	for i := this.top; i >= 0; i-- {
+		fmt.Println(this.stack[i])
 	}
 }
