@@ -7,11 +7,19 @@ import (
 
 func main() {
 
-	linked_list.MyStack.Push(15)
-	linked_list.MyStack.Print()
+	stack := linked_list.Make_Stack()
+	stack.Push(6)
+	stack.Pop()
+	stack.Push(5)
+	if stack.Empty() {
+		println("stack empty")
+	} else {
+		stack.Print()
+	}
 
-	array.Mystack.Push(23)
-	array.Mystack.Push(3)
-	array.Mystack.Pop()
-	array.Mystack.Print_Stack()
+	array_stack := array.Make_Stack(10)
+	array_stack.Push(23)
+	array_stack.Push(3)
+	array_stack.Pop()
+	array_stack.Print_Stack()
 }
