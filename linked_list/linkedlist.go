@@ -13,6 +13,10 @@ type linked_list_stack struct {
 	top *StackNode
 }
 
+func Make_Stack() linked_list_stack {
+    var mystack linked_list_stack = linked_list_stack{top: nil}
+    return mystack
+}
 var MyStack *linked_list_stack = &linked_list_stack{top: nil}
 
 // Add a new element in stack
